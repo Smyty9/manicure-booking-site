@@ -52,8 +52,8 @@ body {
     padding: 2rem 0;
 }
 
-/* Calendar Section */
-.calendar-section {
+/* Services Section */
+.services-section {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     border-radius: 20px;
@@ -62,14 +62,161 @@ body {
     margin-bottom: 2rem;
 }
 
-.calendar-section h2 {
+.services-section h2 {
     text-align: center;
-    font-size: 1.8rem;
+    font-size: 2rem;
     font-weight: 600;
     color: #2d3748;
     margin-bottom: 2rem;
 }
 
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.service-category {
+    background: #f7fafc;
+    border-radius: 15px;
+    padding: 1.5rem;
+    border: 1px solid #e2e8f0;
+}
+
+.service-category h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.service-category h3 i {
+    color: #e53e3e;
+}
+
+.service-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.service-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 1rem;
+    background: white;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+}
+
+.service-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-color: #e53e3e;
+}
+
+.service-info h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 0.3rem;
+}
+
+.service-info p {
+    font-size: 0.9rem;
+    color: #718096;
+    line-height: 1.4;
+}
+
+.service-price {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #e53e3e;
+    white-space: nowrap;
+    margin-left: 1rem;
+}
+
+/* Booking Section */
+.booking-section {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.booking-section h2 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 2rem;
+}
+
+.booking-container {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* Contact Section */
+.contact-section {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.contact-section h2 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 2rem;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: #f7fafc;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+}
+
+.contact-item i {
+    font-size: 1.5rem;
+    color: #e53e3e;
+    margin-top: 0.2rem;
+}
+
+.contact-item h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 0.5rem;
+}
+
+.contact-item p {
+    color: #718096;
+    line-height: 1.5;
+}
+
+/* Calendar Styles */
 .calendar-container {
     max-width: 500px;
     margin: 0 auto;
@@ -299,7 +446,8 @@ body {
     font-size: 0.95rem;
 }
 
-.form-group input {
+.form-group input,
+.form-group select {
     padding: 1rem;
     border: 2px solid #e2e8f0;
     border-radius: 10px;
@@ -308,7 +456,8 @@ body {
     background: #f7fafc;
 }
 
-.form-group input:focus {
+.form-group input:focus,
+.form-group select:focus {
     outline: none;
     border-color: #e53e3e;
     background: white;
@@ -415,13 +564,45 @@ body {
         font-size: 1rem;
     }
     
-    .calendar-section {
+    .services-section,
+    .booking-section,
+    .contact-section {
         padding: 1.5rem;
         margin-bottom: 1.5rem;
     }
     
-    .calendar-section h2 {
+    .services-section h2,
+    .booking-section h2,
+    .contact-section h2 {
         font-size: 1.5rem;
+    }
+    
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .service-category {
+        padding: 1rem;
+    }
+    
+    .service-item {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .service-price {
+        margin-left: 0;
+        align-self: flex-end;
+    }
+    
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .contact-item {
+        padding: 1rem;
     }
     
     .calendar-header h3 {
@@ -466,7 +647,8 @@ body {
         font-size: 0.9rem;
     }
     
-    .form-group input {
+    .form-group input,
+    .form-group select {
         padding: 0.8rem;
         font-size: 0.95rem;
     }
@@ -482,12 +664,28 @@ body {
         font-size: 1.8rem;
     }
     
-    .calendar-section {
+    .services-section,
+    .booking-section,
+    .contact-section {
         padding: 1rem;
     }
     
-    .calendar-section h2 {
+    .services-section h2,
+    .booking-section h2,
+    .contact-section h2 {
         font-size: 1.3rem;
+    }
+    
+    .service-category h3 {
+        font-size: 1.1rem;
+    }
+    
+    .service-info h4 {
+        font-size: 1rem;
+    }
+    
+    .service-price {
+        font-size: 1.1rem;
     }
     
     .time-slots {

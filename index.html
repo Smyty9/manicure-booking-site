@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Запись к мастеру маникюра</title>
+    <title>Маникюр Салон - Цены и Запись</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -14,115 +14,256 @@
         <header class="header">
             <div class="header-content">
                 <h1><i class="fas fa-spa"></i> Маникюр Салон</h1>
-                <p>Запишитесь на маникюр онлайн</p>
+                <p>Профессиональный маникюр и педикюр</p>
             </div>
         </header>
 
         <!-- Main Content -->
         <main class="main-content">
-            <!-- Calendar Section -->
-            <section class="calendar-section">
-                <h2>Выберите удобную дату</h2>
-                <div class="calendar-container">
-                    <div class="calendar-header">
-                        <button class="calendar-nav" id="prevMonth">
-                            <i class="fas fa-chevron-left"></i>
-                        </button>
-                        <h3 id="currentMonth">Декабрь 2024</h3>
-                        <button class="calendar-nav" id="nextMonth">
-                            <i class="fas fa-chevron-right"></i>
-                        </button>
+            <!-- Services Section -->
+            <section class="services-section">
+                <h2>Наши услуги и цены</h2>
+                <div class="services-grid">
+                    <!-- Manicure Services -->
+                    <div class="service-category">
+                        <h3><i class="fas fa-hand-sparkles"></i> Маникюр</h3>
+                        <div class="service-items">
+                            <div class="service-item">
+                                <div class="service-info">
+                                    <h4>Классический маникюр</h4>
+                                    <p>Обработка кутикулы, придание формы ногтям</p>
+                                </div>
+                                <div class="service-price">1500 ₽</div>
+                            </div>
+                            <div class="service-item">
+                                <div class="service-info">
+                                    <h4>Маникюр с покрытием гель-лак</h4>
+                                    <p>Классический маникюр + стойкое покрытие</p>
+                                </div>
+                                <div class="service-price">2500 ₽</div>
+                            </div>
+                            <div class="service-item">
+                                <div class="service-info">
+                                    <h4>Маникюр с укреплением</h4>
+                                    <p>Маникюр + укрепление гелем или акрилом</p>
+                                </div>
+                                <div class="service-price">3000 ₽</div>
+                            </div>
+                            <div class="service-item">
+                                <div class="service-info">
+                                    <h4>Наращивание ногтей</h4>
+                                    <p>Полное наращивание с дизайном</p>
+                                </div>
+                                <div class="service-price">4000 ₽</div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="calendar-weekdays">
-                        <div>Пн</div>
-                        <div>Вт</div>
-                        <div>Ср</div>
-                        <div>Чт</div>
-                        <div>Пт</div>
-                        <div>Сб</div>
-                        <div>Вс</div>
+
+                    <!-- Pedicure Services -->
+                    <div class="service-category">
+                        <h3><i class="fas fa-shoe-prints"></i> Педикюр</h3>
+                        <div class="service-items">
+                            <div class="service-item">
+                                <div class="service-info">
+                                    <h4>Классический педикюр</h4>
+                                    <p>Обработка стоп, придание формы ногтям</p>
+                                </div>
+                                <div class="service-price">2000 ₽</div>
+                            </div>
+                            <div class="service-item">
+                                <div class="service-info">
+                                    <h4>Педикюр с покрытием</h4>
+                                    <p>Классический педикюр + гель-лак</p>
+                                </div>
+                                <div class="service-price">3000 ₽</div>
+                            </div>
+                            <div class="service-item">
+                                <div class="service-info">
+                                    <h4>SPA педикюр</h4>
+                                    <p>Педикюр + массаж стоп и маска</p>
+                                </div>
+                                <div class="service-price">3500 ₽</div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="calendar-days" id="calendarDays">
-                        <!-- Days will be generated by JavaScript -->
+
+                    <!-- Additional Services -->
+                    <div class="service-category">
+                        <h3><i class="fas fa-magic"></i> Дополнительные услуги</h3>
+                        <div class="service-items">
+                            <div class="service-item">
+                                <div class="service-info">
+                                    <h4>Дизайн ногтей</h4>
+                                    <p>Рисунки, стразы, фольга</p>
+                                </div>
+                                <div class="service-price">500 ₽</div>
+                            </div>
+                            <div class="service-item">
+                                <div class="service-info">
+                                    <h4>Снятие покрытия</h4>
+                                    <p>Безопасное снятие гель-лака</p>
+                                </div>
+                                <div class="service-price">300 ₽</div>
+                            </div>
+                            <div class="service-item">
+                                <div class="service-info">
+                                    <h4>Коррекция нарощенных ногтей</h4>
+                                    <p>Заполнение отросшей части</p>
+                                </div>
+                                <div class="service-price">2500 ₽</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Time Selection Modal -->
-            <div class="modal" id="timeModal">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h3>Выберите время</h3>
-                        <button class="close-btn" id="closeTimeModal">
-                            <i class="fas fa-times"></i>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <p class="selected-date" id="selectedDate">Выбранная дата</p>
-                        <div class="time-slots" id="timeSlots">
-                            <!-- Time slots will be generated by JavaScript -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Booking Form Modal -->
-            <div class="modal" id="bookingModal">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h3>Записаться на маникюр</h3>
-                        <button class="close-btn" id="closeBookingModal">
-                            <i class="fas fa-times"></i>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form id="bookingForm" class="booking-form">
-                            <div class="form-group">
-                                <label for="clientName">Ваше имя *</label>
-                                <input type="text" id="clientName" name="clientName" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="clientPhone">Телефон *</label>
-                                <input type="tel" id="clientPhone" name="clientPhone" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="clientTelegram">Telegram</label>
-                                <input type="text" id="clientTelegram" name="clientTelegram" placeholder="@username">
-                            </div>
-                            <div class="form-summary">
-                                <h4>Детали записи:</h4>
-                                <p><strong>Дата:</strong> <span id="summaryDate"></span></p>
-                                <p><strong>Время:</strong> <span id="summaryTime"></span></p>
-                            </div>
-                            <button type="submit" class="submit-btn">
-                                <i class="fas fa-check"></i> Записаться
+            <!-- Booking Section -->
+            <section class="booking-section">
+                <h2>Записаться на прием</h2>
+                <div class="booking-container">
+                    <div class="calendar-container">
+                        <div class="calendar-header">
+                            <button class="calendar-nav" id="prevMonth">
+                                <i class="fas fa-chevron-left"></i>
                             </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Success Modal -->
-            <div class="modal" id="successModal">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h3>Запись успешно создана!</h3>
-                        <button class="close-btn" id="closeSuccessModal">
-                            <i class="fas fa-times"></i>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="success-icon">
-                            <i class="fas fa-check-circle"></i>
+                            <h3 id="currentMonth">Декабрь 2024</h3>
+                            <button class="calendar-nav" id="nextMonth">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
                         </div>
-                        <p>Спасибо за запись! Мы свяжемся с вами для подтверждения.</p>
-                        <button class="submit-btn" id="newBookingBtn">
-                            <i class="fas fa-plus"></i> Новая запись
-                        </button>
+                        <div class="calendar-weekdays">
+                            <div>Пн</div>
+                            <div>Вт</div>
+                            <div>Ср</div>
+                            <div>Чт</div>
+                            <div>Пт</div>
+                            <div>Сб</div>
+                            <div>Вс</div>
+                        </div>
+                        <div class="calendar-days" id="calendarDays">
+                            <!-- Days will be generated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Info -->
+            <section class="contact-section">
+                <h2>Контакты</h2>
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Адрес</h4>
+                            <p>ул. Примерная, 123<br>Москва, 123456</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Телефон</h4>
+                            <p>+7 (999) 123-45-67</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Режим работы</h4>
+                            <p>Пн-Сб: 9:00 - 19:00<br>Вс: выходной</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Time Selection Modal -->
+        <div class="modal" id="timeModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Выберите время</h3>
+                    <button class="close-btn" id="closeTimeModal">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p class="selected-date" id="selectedDate">Выбранная дата</p>
+                    <div class="time-slots" id="timeSlots">
+                        <!-- Time slots will be generated by JavaScript -->
                     </div>
                 </div>
             </div>
-        </main>
+        </div>
+
+        <!-- Booking Form Modal -->
+        <div class="modal" id="bookingModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Записаться на прием</h3>
+                    <button class="close-btn" id="closeBookingModal">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="bookingForm" class="booking-form">
+                        <div class="form-group">
+                            <label for="clientName">Ваше имя *</label>
+                            <input type="text" id="clientName" name="clientName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="clientPhone">Телефон *</label>
+                            <input type="tel" id="clientPhone" name="clientPhone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="clientTelegram">Telegram</label>
+                            <input type="text" id="clientTelegram" name="clientTelegram" placeholder="@username">
+                        </div>
+                        <div class="form-group">
+                            <label for="serviceType">Выберите услугу</label>
+                            <select id="serviceType" name="serviceType">
+                                <option value="">Выберите услугу</option>
+                                <option value="classic-manicure">Классический маникюр - 1500 ₽</option>
+                                <option value="gel-manicure">Маникюр с гель-лаком - 2500 ₽</option>
+                                <option value="strengthening">Маникюр с укреплением - 3000 ₽</option>
+                                <option value="extensions">Наращивание ногтей - 4000 ₽</option>
+                                <option value="classic-pedicure">Классический педикюр - 2000 ₽</option>
+                                <option value="gel-pedicure">Педикюр с покрытием - 3000 ₽</option>
+                                <option value="spa-pedicure">SPA педикюр - 3500 ₽</option>
+                            </select>
+                        </div>
+                        <div class="form-summary">
+                            <h4>Детали записи:</h4>
+                            <p><strong>Дата:</strong> <span id="summaryDate"></span></p>
+                            <p><strong>Время:</strong> <span id="summaryTime"></span></p>
+                            <p><strong>Услуга:</strong> <span id="summaryService"></span></p>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-check"></i> Записаться
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Success Modal -->
+        <div class="modal" id="successModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Запись успешно создана!</h3>
+                    <button class="close-btn" id="closeSuccessModal">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="success-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <p>Спасибо за запись! Мы свяжемся с вами для подтверждения.</p>
+                    <button class="submit-btn" id="newBookingBtn">
+                        <i class="fas fa-plus"></i> Новая запись
+                    </button>
+                </div>
+            </div>
+        </div>
 
         <!-- Footer -->
         <footer class="footer">

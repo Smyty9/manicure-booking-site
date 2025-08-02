@@ -2,6 +2,7 @@
 let currentDate = new Date();
 let selectedDate = null;
 let selectedTime = null;
+let selectedService = null;
 let bookings = []; // Store booked slots
 
 // DOM elements
@@ -20,10 +21,12 @@ const selectedDateElement = document.getElementById('selectedDate');
 const bookingForm = document.getElementById('bookingForm');
 const summaryDate = document.getElementById('summaryDate');
 const summaryTime = document.getElementById('summaryTime');
+const summaryService = document.getElementById('summaryService');
 const newBookingBtn = document.getElementById('newBookingBtn');
+const serviceTypeSelect = document.getElementById('serviceType');
 
-// Webhook URL
-const WEBHOOK_URL = 'https://smytyn8n.ru/webhook-test/c31eacd5-e2d4-4bbd-b62f-647e52ebc493';
+// Webhook URL - замените на ваш домен Beget
+const WEBHOOK_URL = 'https://your-domain.beget.com/webhook-test/c31eacd5-e2d4-4bbd-b62f-647e52ebc493';
 
 // Available time slots (9:00 to 19:00, every hour)
 const availableTimeSlots = [
@@ -36,6 +39,17 @@ const workingDays = [1, 2, 3, 4, 5, 6]; // Monday = 1, Sunday = 0
 const workingHours = {
     start: 9,
     end: 19
+};
+
+// Service prices mapping
+const servicePrices = {
+    'classic-manicure': 'Классический маникюр - 1500 ₽',
+    'gel-manicure': 'Маникюр с гель-лаком - 2500 ₽',
+    'strengthening': 'Маникюр с укреплением - 3000 ₽',
+    'extensions': 'Наращивание ногтей - 4000 ₽',
+    'classic-pedicure': 'Классический педикюр - 2000 ₽',
+    'gel-pedicure': 'Педикюр с покрытием - 3000 ₽',
+    'spa-pedicure': 'SPA педикюр - 3500 ₽'
 };
 
 // Initialize the application
@@ -96,6 +110,12 @@ function setupEventListeners() {
     newBookingBtn.addEventListener('click', () => {
         successModal.classList.remove('show');
         resetForm();
+    });
+
+    // Service selection change
+    serviceTypeSelect.addEventListener('change', (e) => {
+        selectedService = e.target.value;
+        updateServiceSummary();
     });
 }
 
@@ -222,6 +242,15 @@ function selectTime(time) {
     selectedTime = time;
     
     // Update summary
+    updateBookingSummary();
+    
+    // Close time modal and show booking modal
+    timeModal.classList.remove('show');
+    bookingModal.classList.add('show');
+}
+
+// Update booking summary
+function updateBookingSummary() {
     const dateOptions = { 
         weekday: 'long', 
         year: 'numeric', 
@@ -230,10 +259,16 @@ function selectTime(time) {
     };
     summaryDate.textContent = selectedDate.toLocaleDateString('ru-RU', dateOptions);
     summaryTime.textContent = selectedTime;
-    
-    // Close time modal and show booking modal
-    timeModal.classList.remove('show');
-    bookingModal.classList.add('show');
+    updateServiceSummary();
+}
+
+// Update service summary
+function updateServiceSummary() {
+    if (selectedService && servicePrices[selectedService]) {
+        summaryService.textContent = servicePrices[selectedService];
+    } else {
+        summaryService.textContent = 'Не выбрано';
+    }
 }
 
 // Handle booking form submission
@@ -244,6 +279,8 @@ async function handleBookingSubmission(e) {
     const bookingData = {
         date: selectedDate.toISOString().split('T')[0],
         time: selectedTime,
+        service: selectedService || 'Не выбрано',
+        serviceName: servicePrices[selectedService] || 'Не выбрано',
         clientName: formData.get('clientName'),
         clientPhone: formData.get('clientPhone'),
         clientTelegram: formData.get('clientTelegram') || '',
@@ -318,6 +355,8 @@ function resetForm() {
     bookingForm.reset();
     selectedDate = null;
     selectedTime = null;
+    selectedService = null;
+    summaryService.textContent = 'Не выбрано';
 }
 
 // Utility function to format date
@@ -327,38 +366,4 @@ function formatDate(date) {
         month: '2-digit',
         day: '2-digit'
     });
-}
-
-// Add some sample bookings for demonstration (remove in production)
-function addSampleBookings() {
-    const today = new Date();
-    const tomorrow = new Date(today);
-    tomorrow.setDate(today.getDate() + 1);
-    
-    const sampleBookings = [
-        {
-            date: tomorrow.toISOString().split('T')[0],
-            time: '10:00',
-            clientName: 'Анна Петрова',
-            clientPhone: '+7 (999) 123-45-67',
-            clientTelegram: '@anna_pet',
-            timestamp: new Date().toISOString(),
-            slotKey: `${tomorrow.toDateString()}-10:00`
-        },
-        {
-            date: tomorrow.toISOString().split('T')[0],
-            time: '14:00',
-            clientName: 'Мария Иванова',
-            clientPhone: '+7 (999) 987-65-43',
-            clientTelegram: '@maria_ivan',
-            timestamp: new Date().toISOString(),
-            slotKey: `${tomorrow.toDateString()}-14:00`
-        }
-    ];
-    
-    bookings = [...bookings, ...sampleBookings];
-    localStorage.setItem('bookings', JSON.stringify(bookings));
-}
-
-// Uncomment the line below to add sample bookings for testing
-// addSampleBookings(); 
+} 
